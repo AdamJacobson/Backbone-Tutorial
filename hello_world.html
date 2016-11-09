@@ -23,7 +23,18 @@
 		<!-- Javascript code -->
 		<!-- =============== -->
 		<script type="text/javascript">
-
+			// el (element). Every view has an element associated with it
+			var AppView = Backbone.View.extend({
+				el: '#container',
+				// this is the first function called when the view is initialized
+				initialize: function() {
+					this.render();
+				},
+				render: function() {
+					this.$el.html("Hello world");
+				}
+			});
+			var appView = new AppView();
 		</script>
 	</body>
 </html>
