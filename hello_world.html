@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<div id="container">Loading...</div>
+		<div id="template">Loading...</div>
 		<!-- ========= -->
 		<!-- Your HTML -->
 		<!-- ========= -->
@@ -35,6 +36,18 @@
 				}
 			});
 			var appView = new AppView();
+			
+			var TemplateView = Backbone.View.extend({
+				el: "#template",
+				template: _.template("<h3>Hello <%= who %></h3>"),
+				initialize: function() {
+					this.render();
+				},
+				render: function() {
+					this.$el.html(this.template({who: "World!"}))
+				}
+			});
+			var tView = new TemplateView();
 		</script>
 	</body>
 </html>
